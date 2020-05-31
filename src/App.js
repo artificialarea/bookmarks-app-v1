@@ -10,12 +10,6 @@ import BookmarkApp from './BookmarkApp/BookmarkApp';
 //     rating:"3", 
 //     description:"No evil"
 //   },
-//   {
-//     title:"Google",
-//     url:"http://www.google.com", 
-//     rating:"3", 
-//     description:"No evil"
-//   }
 // ];
 
 export default class App extends Component {
@@ -73,6 +67,7 @@ export default class App extends Component {
   }
 
   render() {
+    // console.log(this.state)
     const page = this.state.showAddForm
       ? <AddBookmark 
           showForm={show => this.setShowAddForm(show)}
