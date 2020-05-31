@@ -41,6 +41,7 @@ export default class AddBookmark extends Component {
   }
 
   render() {
+    console.log(this.state)
     return (
       <div className="addbookmark">
         <h2>Add Bookmark</h2>
@@ -70,7 +71,10 @@ export default class AddBookmark extends Component {
 
           <div className="addbookmark__buttons">
             <button onClick={event => this.props.showForm(false)}>Cancel</button>
-            <button type="submit" onClick={event => this.props.handleAddBookmark()}>Save</button>
+            <button type="submit" onClick={event => {
+              event.preventDefault();
+              this.props.handleAddBookmark(this.state)
+            }}>Save</button>
           </div>  
         </form>
       </div>
