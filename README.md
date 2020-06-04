@@ -1,9 +1,3 @@
-## v2
-Exercise per: https://courses.thinkful.com/react-v1/checkpoint/16#refactor-the-bookmarks-app-to-use-context
-
-Repo src: https://github.com/Thinkful-Ed/bookmarks-app/tree/context-startingpoint
-
-## v1
 Exercise per: https://courses.thinkful.com/react-v1/checkpoint/13#forms
 
 Repo src: https://github.com/Thinkful-Ed/bookmarks-react-client/tree/static_version (multiple branches)
