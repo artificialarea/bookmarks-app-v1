@@ -13,8 +13,7 @@ export default class AddBookmark extends Component {
     }
   }
 
-  // unable to edit the input fields unless I attached onChange event handlers to each input with methods to update the state when each of these inputs change?!?!
-  // surely there must be an easier, more efficient way, no?
+  // the event handlers for these controlled components could all be handled by a single method, but using seperate methods for title, url, description, and rating for learning simplicity
 
   titleChanged(title) {
     this.setState({
@@ -47,7 +46,7 @@ export default class AddBookmark extends Component {
     const urlFetch = 'https://tf-ed-bookmarks-api.herokuapp.com/v3/bookmarks';
     const options = {
       method: 'POST',
-      body: JSON.stringify(bookmark),
+      body: JSON.stringify(bookmark), // every POST needs a body
       headers: {
         "Authorization": "Bearer $2a$10$Y69Ld.zBy31musESl98VHOs1ZUlvHDWAJ4rRE9uSNl9gO7ZvBB0WS",
         "Content-Type": "application/json",
@@ -62,6 +61,10 @@ export default class AddBookmark extends Component {
         return response.json();
       })
       .then(data => {
+        // as the properties of the bookmark object have already been copied out of state,
+        // and the fetch post has been successful,
+        // we create a new blank state object, 
+        // to clear the form in preparation for next time...
         this.setState({
           title: '',
           url: '',
@@ -81,7 +84,7 @@ export default class AddBookmark extends Component {
   }
 
   render() {
-    // console.log(this.state)
+    console.log('controlled component: ', this.state)
     const error = this.state.error
       ? <div className="error">{this.state.error}</div>
       : '';
